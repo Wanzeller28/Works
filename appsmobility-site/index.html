@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Apps4Mobility International</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="description" content="Apps4Mobility é uma empresa de desenvolvimento de aplicações móveis. Encontre e faça o download das nossas apps no market da Google ou na App Store. Fazemos desenvolvimento de aplicações móveis que assentam nas necessidades dos nossos utilizadores ou clientes." />
+  <meta name="keywords" content="mobile application,mobile apps,mobile app development company,mobile apps download,mobile application testing,mobile app design,mobile developer,mobile web development,software development,mobile software,mobile web,software development company,ios development,how to make an app,ios developer,app store,mobile market,mobile marketing association,mobile app marketing,mobile marketer,digital mobile,mobile,mobile security,app security,custom software development,mobile application development companies" />
+  <meta name="author" content="Apps4Mobility" />
+  <meta name="copyright" content="2015, Apps4Mobility" />
+  <meta name="expires" content="never" />
+  <meta name="distribution" content="global" />
+  
+  <link rel="icon" href="images/favicon.png">
+  
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto'>
+  
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/contact.css">
+
+  <!-- https://github.com/cferdinandi/smooth-scroll -->
+  <link rel="stylesheet" href="css/media-queries-min.css">
+  <link rel="stylesheet" href="css/my-styles-min.css">
+  <!--<link rel="stylesheet" href="css/fonts-min.css">-->
+
+  <!-- Owl Carousel Assets -->
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.css">
+
+  <!-- Prettify -->
+  <!--<link rel="stylesheet" href="js/google-code-prettify/prettify.css">-->
+  
+  <style>
+  @font-face{font-family:'icomoon';src:url('font/icomoon.eot?-xg3cqo');src:url('font/icomoon.eot?#iefix-xg3cqo') format('embedded-opentype'),url('font/icomoon.woff?-xg3cqo') format('woff'),url('font/icomoon.ttf?-xg3cqo') format('truetype'),url('font/icomoon.svg?-xg3cqo#icomoon') format('svg');font-weight:normal;font-style:normal}[class^="icon-"],[class*=" icon-"]{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-a:before{content:"\e600";float:left;font-size:3em;color:#d13239}
+	Window size: 1244 x 773
+	Viewport size: 1244 x 665
+  </style>
+  
+  <script type='text/javascript' src='js/gen_validatorv31-min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
+  <!--Caroussel Iphone-->
+  <script src="js/owl.carousel-min.js"></script>
+
+  <script src="js/google-code-prettify/prettify.js"></script>
+  <script src="js/application-min.js"></script>
+
+  <!--<?PHP
+
+  require_once("./include/fgcontactform.php");
+  require_once("./include/CreateConnection.php");
+  require_once("./include/Pag2Class.php");
+  require_once("./include/Pag3Class.php");
+  require_once("./include/Pag4Class.php");
+  require_once("./include/ProductsClass.php");
+
+  $formproc = new FGContactForm();
+
+  $formproc->SetFormRandomKey('CnRrspl1FyEylUj');
+
+  /* contact form validations */
+  if(isset($_POST['submitted']))
+  {
+    if($formproc->ProcessForm())
+    {
+      ?>
+      <script>
+      $(document).ready(function (){
+        $('.alert-success').fadeIn();
+        $('#name').val('');
+        $('#email').val('');
+        $('#message').val('');
+        window.location.href = '#contacts';
+        setTimeout( "jQuery('.alert').fadeOut();",2000 );
+      });
+      </script>
+      <?php
+    }else{
+      ?>
+      <script>
+      $(document).ready(function (){
+        $('.alert-danger').fadeIn();
+        window.location.href = '#contacts';
+        setTimeout( "jQuery('.alert').fadeOut();",2000 );
+      });
+      </script>
+      <?php
+    }
+  }
+  /* connection to database */
+  $conn = createConnection();
+
+  /* classes to get objects from database*/
+  $pag2 = Pag2Class::createPage2Class($conn);
+  $pag3 = Pag3Class::createPage3Class($conn);
+  $pag4 = Pag4Class::createPage4Class($conn);
+  $productsClass = ProductsClass::createProductsClass($conn);
+
+
+  /* Page2 fields from database */
+  $title = $pag2->getTitle();
+  $subtitle = $pag2->getSubtitle();
+  $text1 = $pag2->getText1();
+  $text2 = $pag2->getText2();
+  $page2_images =  $pag2->getImages();
+
+  /* Page3-zone1 fields from database */
+  $zone1AppName = $pag3->getZone1AppName();
+  $zone1AppImageLink = $pag3->getZone1AppImageLink();
+  $zone1Title = $pag3->getZone1Title();
+  $zone1Text = $pag3->getZone1Text();
+  $zone1BackgroundSmall = $pag3->getZone1BackgroundSmall();
+  $zone1BackgroundLarge = $pag3->getZone1BackgroundLarge();
+  $zone1AndroidStore = $pag3->getZone1AndroidStore();
+  $zone1IosStore = $pag3->getZone1IosStore();
+  $zone1WindowsPhoneStore = $pag3->getZone1WindowsPhoneStore();
+  $zone1LocalStore = $pag3->getZone1LocalStore();
+
+  /* Page3-zone2 fields from database */
+  $zone2AppName = $pag3->getZone2AppName();
+  $zone2AppImageLink = $pag3->getZone2AppImageLink();
+  $zone2Title = $pag3->getZone2Title();
+  $zone2Text = $pag3->getZone2Text();
+  $zone2BackgroundSmall = $pag3->getZone2BackgroundSmall();
+  $zone2BackgroundLarge = $pag3->getZone2BackgroundLarge();
+  $zone2AndroidStore = $pag3->getZone2AndroidStore();
+  $zone2IosStore = $pag3->getZone2IosStore();
+  $zone2WindowsPhoneStore = $pag3->getZone2WindowsPhoneStore();
+  $zone2LocalStore = $pag3->getZone2LocalStore();
+
+  /* Products fields from database */
+  $resultsProductsLinks = $productsClass->getResultsProductsLinks();
+  $resultsProductsImages = $productsClass->getResultsProductsImages();
+  $resultsProductsTitles = $productsClass->getResultsProductsTitles();
+
+  /* Page4 fields from database */
+  $pag4MenuEntry = $pag4->getPag4MenuEntry();
+  $pag4Title = $pag4->getPag4Title();
+  $pag4Description = $pag4->getPag4Description();
+  $pag4ImageLink = $pag4->getPag4ImageLink();
+
+  pg_close($conn);
+
+  ?>-->
+
+  <script>
+  function loadImage(){
+    var preload = new createjs.LoadQueue();
+    preload.loadFile("images/wallpaper1.jpg");
+    preload.loadFile("images/wallpaper2.jpg");
+  }
+  </script>
+
+</head>
+
+
+<body onload="loadImage()">
+
+    <div class="playBtn"></div>
+
+    <div class="special" id="vid">
+        <img class ="triangulo" src="images/triangulo_up_op.png" alt="apps4mobility" style="position: absolute;right: 0;top: 0;opacity: 0.2;width: 45%;">
+        <img class ="triangulo" src="images/triangulo_down_op.png" alt="apps4mobility" style="position:absolute;left: 0;bottom: 0;opacity: 0.2;width: 45%;">
+        <div class="big-logo" style="position: absolute;left: 0;right: 0;top: 30%;">
+            <a data-scroll data-options='{ "easing": "easeInQuad" }' href="#about"><img src="images/apps4mobiliy-big-logo-white.png" alt="appsmobility logo" style="max-width: 100%;"></a>
+        </div>
+        <div class="grelha" style="background-image: url('images/video-background-pattern.png')!important;height: 100%;"></div>
+        <div class="appsworld-logo" style="  position: absolute;left: 23em;right: 0;top: 31em;"><a href="https://www.apps-world.net/northamerica/" target="_blank"><img src="images/apps-world-logo.png" alt="apps world event" style="max-width: 100%;"></a></div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="linkedin"><a href="https://www.linkedin.com/company/apps4mobility-international" target="_blank"><img src="images/apps4mobility-linkedin.png" alt="apps4mobility linkedin" style="width:25px;height:25px"></a></div>
+                <div class="navbar-header">
+                    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>-->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#about">About</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#destaques">Products</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#services">Services & Solutions</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#contacts">Contacts</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav><!--/nav -->
+    </div><!--/.special -->
+
+    <!--About-->
+    <div class="container" id="about">
+        <img class ="triangulo" src="images/triangulo_left_up.png" alt="apps4mobility" style="position: absolute;left:0;width: 44.5%;">
+        <img class ="triangulo" src="images/triangulo_right_down.png" alt="apps4mobility" style="position: absolute;right:0;bottom:0;width: 44.5%;">
+
+        <div class="row">
+            <div class="small-logo"><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#vid"><img src="images/apps4mobiliy-logo.png" alt="apps4mobility logo"></a></div>
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#about">About</a></li>
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#destaques">Products</a></li>
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#services">Services & Solutions</a></li>
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#contacts">Contacts</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </nav><!--/nav -->
+        </div> <!--/.end row -->
+
+
+        <div class="row" style="margin-top: 15em;" id="content_about">
+            <div class="col-md-8" style="margin-top: 2em; padding:0; margin-left:2em;" id="about-text">
+                <p class="title about">Transforming the World. One app at a time!</p>
+                <p class="title about"></p>
+                <div class="row" style="margin-top: 2em;">
+                    <div class="col-md-5"><p>We imagine, design and implement software, that aims to harness the collaborative power of networks (people, knowledge, machines) in order to create a collective intelligence that has the potential to lead to better informed decision-making processes and to empower citizens, through participation and interaction and increased transparency.</p></div>
+                    <div class="col-md-5"><p>Our software eliminates artificial barriers and inefficiencies that hinder the flow of communication and the act of sharing or giving (information, goods, knowledge), opening the door to novel reward mechanisms and business models.</p></div>
+                </div>
+            </div>
+            <div class="col-md-4" id="moldura" style="background-image: url('images/hand-mockup.png');background-repeat: no-repeat;position: absolute;right: 0;bottom: 0;">
+                
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Products-->
+    <div class="container" id="destaques" style="padding-top: 0;">
+
+        <div class="row">
+
+            <div class="hide-content-1 col-lg-6 col-md-6">
+                <div class="close-classic"><img src="images/close_button.png" alt="apps4mobility apps description"></div>
+                <div class="texto-explain" style="margin-top: 9em;">
+                    <h2 style="font-weight:900;"></h2>
+                    <div class="texto">
+                    <h3>Share a Ride. Change the World. Earn Social Currency</h3>
+                    
+                    <br>
+
+Enjoy quality time with your friends!<br>
+Save time and money on your commute!<br> 
+Save on parking! <br><br>
+
+Save the planet. It is our home. And we all share it<br><br>
+
+Share a Ride and Earn the coolest Social Currency (we call them Aeons*) ever created.<br>
+Be different.  By being Socially Conscious and by promoting Environmental Sustainability<br>
+
+The Share A Ride App is much more than a Social App.<br>
+- Reduces traffic congestion<br>
+- Improves air quality.<br> 
+- Builds Community Spirit.<br>
+
+You do your part. Everyone wins. Planet Earth thanks YOU!<br><br>
+
+You can share a ride with your friends. With your colleagues. Even with your boss!<br>
+
+Pick a friend. Schedule a Ride in the Future. Find in real-time who is offering a Ride.<br><br>
+
+<i>“The difference between what we do and what we are capable of doing would suffice to solve most of the world’s problem.”</i> -- <b>Mahatma Gandhi</b><br><br>
+
+*Aeon, is a word borrowed from the ancient Greek, and it means "life" or "for eternity".<br>
+
+We think it is a very appropriate name for a Social Currency. We hope you agree.
+                    
+                    </div>
+                    <div class="stores">
+                        <!--<img src="images/btn-app-store.png" alt="apple"> <img src="images/btn-google-play.png" alt="android"> <img src="images/btn-windows-store.png" alt="windows">-->
+                        
+                              <a href="#"><img src="images/btn-google-play.png" alt="apps4mobility android apps"></a>
+                              <a href="#"><img src="images/btn-app-store.png" alt="apps4mobility iphone apps"></a>
+                              <a href="#"><img class="windows-store" src="images/btn-windows-store.png" alt="apps4mobility windows phone apps"></a>
+                              <a href="#"><img class="local-store" src="images/btn-a4m-shop.png" alt="apps4mobility local apps"></a>
+                        
+                    </div> <!--close stores-->
+                </div>
+            </div><!--close hide content-->
+
+            <div class="hide-content-2 col-lg-6 col-md-6">
+                <div class="close-classic-2"><img src="images/close_button.png" alt="apps4mobility apps description"></div>
+                <div class="texto-explain">
+                    <h2 style="font-weight:900;"></h2>
+                   
+                    <div class="texto">
+                    <h3>Manage Much?</h3> 
+                    <br>
+Get your favorite tool in your hands, always with you.<br>
+Make it easier to update the daily tasks. Make it snappy. <br>Turn management from chore, to fun.<br><br>
+FPM brings along the most common actions and <br>focus into your pocket and a little extra. Not too much. <br>Focus is the driving goal.<br><br>
+FPM has the power to manage the company. <br><br>
+FPM Mobile puts the company in your hand.
+                    
+                    </div>
+                    <div class="stores">
+                    	<a href="#"><img class="local-store" src="images/btn-a4m-shop.png" alt="apps4mobility local apps"></a>      
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6" id="destaque1">
+                <div class="small-logo-destaques"><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#vid"><img src="images/apps4mobiliy-logo-white.png" alt="apps4mobility"></a></div>
+                <div class="app1">
+                    <div class="image-app col-lg-12 col-md-12 col-sm-12 ">
+                        <h2 style="font-weight:900;margin-bottom: 0;">Share a Ride</h2>
+                        
+                        <div class="icons-store" style="text-align: left;margin-left: 9.8em;">
+                        <a href="#"><img class="android-store" src="images/btn-google-play-small.png" alt="apps4mobility android apps"></a>
+                            <a href="#"><img class="ios-store" src="images/btn-app-store-small.png" alt="apps4mobility iphone apps"></a>
+                            <a href="#"><img class="windows-store" src="images/btn-windows-store-small.png" alt="apps4mobility windows phone apps"></a>
+                            <a href="#"><img class="local-store" src="images/a4m-store.png" alt="apps4mobility local apps"></a>
+                    </div>
+
+                    <img class="lazy" id="share-a-ride" src="images/highlights/share-intro.png" alt="share a ride mobile app">"
+                    <p><a class="btn btn-default trigger1" href="#" role="button">View More</a></p>
+                </div>
+
+                <div class="hide-content-1-mobile col-lg-6 col-md-6" style="display:none;">
+                    <div class="texto-explain">
+                        <h2 style="font-weight:900;"></h2>
+                        <div class="texto"><h3>Share a Ride. Change the World. Earn Social Currency</h3>
+                        
+                        
+                        <br>
+
+Enjoy quality time with your friends!<br>
+Save time and money on your commute!<br> 
+Save on parking! <br><br>
+
+Save the planet. It is our home. And we all share it<br><br>
+
+Share a Ride and Earn the coolest Social Currency (we call them Aeons*) ever created.<br>
+Be different.  By being Socially Conscious and by promoting Environmental Sustainability<br>
+
+The Share A Ride App is much more than a Social App.<br>
+- Reduces traffic congestion<br>
+- Improves air quality.<br> 
+- Builds Community Spirit.<br>
+
+You do your part. Everyone wins. Planet Earth thanks YOU!<br><br>
+
+You can share a ride with your friends. With your colleagues. Even with your boss!<br>
+
+Pick a friend. Schedule a Ride in the Future. Find in real-time who is offering a Ride.<br><br>
+
+<i>“The difference between what we do and what we are capable of doing would suffice to solve most of the world’s problem.”</i> -- <b>Mahatma Gandhi</b><br><br>
+
+*Aeon, is a word borrowed from the ancient Greek, and it means "life" or "for eternity".<br>
+
+We think it is a very appropriate name for a Social Currency. We hope you agree.
+                        
+                        </div>
+                        <div class="store-icons-normal">
+                            
+                            <a style="margin-right: 1em;" href="#"><img class="android-store" src="images/btn-google-play-small.png" alt="apps4mobility android apps"></a>Z
+                            <a style="margin-right: 1em;" href="#"><img class="ios-store" src="images/btn-app-store-small.png" alt="apps4mobility iphone apps"></a>
+                            <a style="margin-right: 1em;" href="#"><img class="windows-store" src="images/btn-windows-store-small.png" alt="apps4mobility windows phone apps"></a>
+                            <a style="margin-right: 1em;" href="#"><img class="local-store" src="images/a4m-store.png" alt="apps4mobility local apps"></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class ="triangulo-destaques" src="images/triangulo_down.png" alt="apps4mobility" style="position:absolute;left: 0;bottom: 0;width: 80%;">
+        </div>
+
+
+        <div class="col-lg-6 col-md-6" id="destaque2">
+            <nav class="navbar navbar-default" style="margin-bottom: 0;z-index: 2;">
+                <div class="container-fluid">
+                    <div class="navbar-header"></div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#about">About</a></li>
+                            <li class="active"><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#destaques">Products</a></li>
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#services">Services & Solutions</a></li>
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#contacts">Contacts</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </nav>
+
+            <div class="app2">
+                <div class="image-app col-lg-12 col-md-12 col-sm-12 ">
+                    <h2 style="font-weight:900; margin-bottom:0;">FPM</h2>
+                    <div class="icons-store">
+                        
+                        <!--<a href="#"><img class="android-store" src="images/btn-google-play-small.png" alt="apps4mobility android apps"></a>"
+                        <a href="#"><img class="ios-store" src="images/btn-app-store-small-inverso.png" alt="apps4mobility iphone apps"></a>"
+               					<a href="#"><img class="windows-store" src="images/btn-windows-store-small-inverso.png" alt="apps4mobility windows phone apps"></a>"-->
+                        <a href="#"><img class="local-store" src="images/a4m-store-inverse.png" alt="apps4mobility local apps"></a>
+                        
+                    </div>
+                    <img class="lazy" id="fpm" src="images/highlights/fpm-intro.png" alt="fpm mobile app">
+                    <p><a class="btn btn-default trigger" href="#" role="button">View More</a></p>
+                </div>
+                <div class="hide-content-1-mobile col-lg-6 col-md-6" style="display:none;">
+                    <div class="texto-explain">
+                        <h2 style="font-weight:900;"></h2>
+                        <div class="texto"><h3>Manage much?</h3><br>
+                        
+                        Get your favorite tool in your hands, always with you.<br>
+Make it easier to update the daily tasks. Make it snappy. <br>Turn management from chore, to fun.<br><br>
+FPM brings along the most common actions and <br>focus into your pocket and a little extra. Not too much. <br>Focus is the driving goal.<br><br>
+FPM has the power to manage the company. <br><br>
+FPM Mobile puts the company in your hand.
+                        
+                        </div>
+                        <div class="store-icons-normal">
+                            <!--<a style="margin-right: 1em;" href="$zone2AndroidStore"><img class="android-store" src="images/btn-google-play-small.png" alt="apps4mobility android apps"></a>
+                            <a style="margin-right: 1em;" href="$zone2IosStore"><img class="ios-store" src="images/btn-app-store-small.png" alt="apps4mobility iphone apps"></a>
+                            <a style="margin-right: 1em;" href="$zone2WindowsPhoneStore"><img class="windows-store" src="images/btn-windows-store-small.png" alt="apps4mobility windows phone apps"></a>-->
+                            <a style="margin-right: 1em;" href="$zone2LocalStore"><img class="local-store" src="images/a4m-store.png" alt="apps4mobility local apps"></a>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class ="triangulo-destaques" src="images/triangulo_up.png" alt="apps4mpobility" style="position: absolute;right: 0;top:-2px;width: 80%;">
+        </div>
+        </div> <!--Row-->
+
+        <div class="add" style="position: absolute;margin-top: 30em;left: 50%;z-index: 999;">
+            <img id="add" src="images/button_more.png" alt="apps4mobility products">
+        </div>
+    </div> <!--end container-->
+
+    <div id="products" style="display:none; background-color:#151d20;">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div id="owl-demo" class="owl-carousel">
+            
+            		<div class="owl-item" style="width: 287px;"><div class="item"><a href="https://play.google.com/store/apps/details?id=com.go4mobility.differences.activities&amp;hl=en" target="_blank"><img src="images/products/idifferences.png" alt="idifferences"></a><p>idifferences</p></div></div>
+            		<div class="owl-item" style="width: 287px;"><div class="item"><a href="https://play.google.com/store/apps/details?id=com.go4digital.xutosepontapes&amp;hl=en" target="_blank"><img src="images/products/xutos.png" alt="xutos e pontapés"></a><p>xutos e pontapés</p></div></div>
+            		<div class="owl-item" style="width: 287px;"><div class="item"><img src="images/products/iinflation.png" alt="iinflation"><p>iinflation</p></div></div>
+            		<div class="owl-item" style="width: 287px;"><div class="item"><a href="https://play.google.com/store/apps/details?id=com.go4mobility.rof&amp;hl=en" target="_blank"><img src="images/products/ringsoffire.png" alt="rings of fire"></a><p>rings of fire</p></div></div>
+            		<div class="owl-item" style="width: 287px;"><div class="item"><a href="https://play.google.com/store/apps/details?id=com.go4mobility.chevrolet&amp;hl=en" target="_blank"><img src="images/products/chevrolet.png" alt="chevrolet"></a><p>chevrolet</p></div></div>
+            		<div class="owl-item" style="width: 287px;"><div class="item"><img src="images/products/fpm-mobile.png" alt="FPM Mobile"><p>FPM Mobile</p></div></div>
+            		<div class="owl-item" style="width: 287px;"><div class="item"><a href="https://play.google.com/store/apps/details?id=com.apps4mobility.sharearide" target="_blank"><img src="images/products/share-a-ride.png" alt="share-a-ride"></a><p>share-a-ride</p></div></div>
+            
+            </div>
+        </div>
+    </div>
+
+    <!--Services-->
+    <div class="container" id="services">
+        <!-- Example row of columns -->
+        <img class ="triangulo" src="images/triangulo_left_up.png" alt="apps4mobility" style="position: absolute;left:0;width: 44.5%;">
+        <img class ="triangulo" src="images/triangulo_right_down.png" alt="apps4mobility" style="position: absolute;right:0;bottom:0;width: 44.5%;">
+        <div class="row">
+            <div class="small-logo"><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#vid"><img src="images/apps4mobiliy-logo.png" alt="apps4mobility logo"></a></div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header"></div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#about">About</a></li>
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#destaques">Products</a></li>
+                            <li class="active" style="background-image: url('images/hover_big.png');background-repeat: no-repeat;background-position-y: 50%;background-position-x: 50%;"><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#services">Services & Solutions</a></li>
+                            <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#contacts">Contacts</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </nav>
+        </div>
+
+
+        <div class="row">
+            <div id="carousel-example-generic" style="margin-top:4em;" class="carousel slide" data-ride="carousel" data-interval="false">
+                <!-- Indicators -->
+                <img src="images/arrow.png" alt="apps4mobility-products" class="slide-arrow" style="display:none;">
+                <div class="col-md-4 carousel-indicators">
+                    <a href="#"><p style="margin:0;margin-bottom:0.3em;" data-target="#carousel-example-generic" data-slide-to="0" class="active">Creative Services</p></a>
+                    <a href="#"><p style="margin:0;margin-bottom:0.3em;" data-target="#carousel-example-generic" data-slide-to="1">Technology and Development</p></a>
+                    <a href="#"><p style="margin:0;margin-bottom:0.3em;" data-target="#carousel-example-generic" data-slide-to="2">Marketing and Analytics</p></a>
+                    <a href="#"><p style="margin:0;margin-bottom:0.3em;" data-target="#carousel-example-generic" data-slide-to="3">Security</p></a>
+                </div>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+
+                	<div class="item active">
+                  	<div class="col-md-8"><img class="lazy tablet-image" src="images/services/apps4mobility-creativity.png" alt="Creative Services" style="max-width: 100%;"></div>
+                    <div class="col-md-4 texto-inner" style="margin-top: 10em;">
+                     	<span class="icon-a"></span>
+                     	<a><p class="title">Creative Services</p></a>
+                     	<p>High quality user experience is everything you want to achieve with your app. 
+                     	Happy customers make happy companies. You know it and so do us. 
+                     	<br><br>That’s why we have an outstanding design team ready to elevate your app into the next level.
+                     	Top level professionals that combine UX/UI design with front- and back-end hardware and software platforms, having always in mind your business objectives.
+                     	</p>
+                    </div>
+                  </div>
+                  
+                  <div class="item">
+                  	<div class="col-md-8"><img class="lazy tablet-image" src="images/services/apps4mobility-development.png" alt="Technology and Development" style="max-width: 100%;"></div>
+                    	<div class="col-md-4 texto-inner" style="margin-top: 10em;">
+                      <span class="icon-a"></span>
+                      <a><p class="title">Technology and Development</p></a>
+                      <p>Transforming your business into a mobile business is the future. Here at Apps4Mobility we provide a customized service that meet all your business requirements. <br><br>
+                      Do you have great ideas and don’t know how to put them in practice? Nothing to worry about.
+                      We have a team of highly skilled developers and customer-focused project managers that make the magic happens. <br><br>
+                      With solid experience in iOS, Android, HTML5 as well in complex back-end systems integration and development, any request will be delivered.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="item">
+                  	<div class="col-md-8"><img class="lazy tablet-image" src="images/services/apps4mobility-marketing.png" alt="Marketing and Analytics" style="max-width: 100%;"></div>
+                  	<div class="col-md-4 texto-inner" style="margin-top: 10em;">
+                    	<span class="icon-a"></span>
+                      <a><p class="title">Marketing and Analytics</p></a>
+                      <p>Do you have an outstanding app but for an unknown reason it’s not very successful? <br>
+                      The correct marketing approach can make all the difference. <br><br>Our aim is to stand your app from the crowd.
+                      We will plan mobile media strategy, buy your media placements and optimise your results. We’ll develop and execute innovative cross-platform campaigns and manage your Trade Promotions across online, SMS and IVR.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div class="item">
+                  	<div class="col-md-8"><img class="lazy tablet-image" src="images/services/apps4mobility-security.png" alt="Security" style="max-width: 100%;"></div>
+                    <div class="col-md-4 texto-inner" style="margin-top: 10em;">
+                    	<span class="icon-a"></span>
+                      <a><p class="title">Security</p></a>
+                      <p>Security is our number one priority. We know the damages that security breaches can cause. So we define an appropriate security architecture and implementation to insure the safety of your app. <br><br>
+                      Our team will guide you through the entire process of evaluating and implementing mobile platforms, security levels on data, apps and website access, authentication mechanism, mobile device management system that adheres to your business context and security needs.
+                      </p>
+                     </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Contacts-->
+    <div class="container" id="contacts">
+
+        <div class="alert alert-success" role="alert" style="display:none">Message Sent!</div>
+        <div class="alert alert-danger" role="alert" style="display:none"><?php echo $formproc->GetErrorMessage(); ?></div>
+        <img class ="triangulo" src="images/triangulo_up_op.png" alt="apps4mobility" style="position: absolute;right: 0;top: 0;opacity: 0.1;width: 44.5%;">
+        <img class ="triangulo" src="images/triangulo_down_op.png" alt="apps4mobility" style="position:absolute;left: 0;bottom: 0;opacity: 0.1;width: 44.5%;">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header"></div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#about">About</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#destaques">Products</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#services">Services & Solutions</a></li>
+                        <li class="active" style="  background-image: url('images/hover_white.png');
+                        background-repeat: no-repeat;
+                        background-position-y: 50%;
+                        background-position-x: 50%;"><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#contacts">Contacts</a></li>
+                     </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="padding:0;">
+                <h2>Contact Us.</h2>
+                <!--Start Contact form -->
+                <form name="contact" id='contactus' action='' method='' accept-charset='UTF-8'>
+                    <fieldset>
+                        
+
+                        <input type="text" name="name" id="name" maxlength="50" class="input-block-level" placeholder="Name">
+                        <span id='contactus_name_errorloc' class='error'></span>
+
+                        <input type="text" name="email" id="email" maxlength="50" class="input-block-level" placeholder="Email">
+                        <span id='contactus_email_errorloc' class='error'></span>
+
+                        <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Comments"></textarea>
+
+                        <div class="actions">
+                          <input type="submit" value="Send Your Message" name="submit" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!">
+                        </div>
+                    </fieldset>
+                </form>
+                <!--End Contact form -->
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" id="office">
+                <h2>Head Office</h2>
+                <p>Lugar Srª Santana</p>
+                <p>Edif. Clube Náutico, S/N</p>
+                <p>7580-309 Alcácer do Sal, Portugal</p>
+                <p>E: headoffice@apps4mobility.com</p>
+
+                <br>
+                <br>
+                <h2>Office</h2>
+                <p>Rua Fradesso da Silveira</p>
+                <p>n. 4, Piso 1 B </p>
+                <p>1300-609 Lisboa, Portugal</p>
+                <p>P: (+351) 21 033 77 00</p>
+                <p>E: office@apps4mobility.com</p>
+                <br>
+                <a href="https://www.linkedin.com/company/apps4mobility-international" target="_blank"><img src="images/apps4mobility-linkedin.png" alt="apps4mpobility linkedin" style="width:25px;height:25px"></a>
+                <a data-scroll data-options='{ "easing": "easeInQuad" }' href="#vid"><img id="logo-contact" src="images/apps4mobiliy-logo.png" alt="apps4mobility logo" style="max-width: 100%; float:right;margin-top:5em;"></a>
+            </div>
+        </div>
+    </div> <!-- /container -->
+
+    <footer>
+        <p>&copy; 2015 All Rights Reserved</p>
+    </footer>
+
+    <!-- Core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="js/jquery.lazyload.min.js"></script>
+    <!--Scrool das Divs-->
+    <script src='js/smooth-scroll.min.js'></script>
+    <script src="js/jquery.slides.min.js"></script>
+    <script src="js/jquery.backgroundvideo.min.js"></script>
+    <!--<script src="js/main-min.js" async></script>-->
+    
+    
+    <script>
+    $(function() {
+	$("img.lazy").lazyload();
+});
+
+
+/*Video*/
+$(document).ready(function() {
+	var videobackground = new $.backgroundVideo($('.special'), {
+    	"align": "centerXY",
+    	"width": 1280,
+        "height": 720,
+        "path": "videos/",
+        "filename": "video",
+        "types": ["mp4","ogg","webm"]
+    });
+
+   
+$(".playBtn").click(function(){
+  $('#video_background').trigger('load');
+  $('#video_background').trigger('play');
+})
+$(".playBtn" ).trigger( "click" );
+
+});
+
+
+
+/*Scrool*/
+smoothScroll.init({
+	speed: 1000,
+	easing: 'easeInOutCubic',
+	offset: 0,
+	updateURL: false,
+	callbackBefore: function ( toggle, anchor ) {},
+	callbackAfter: function ( toggle, anchor ) {}
+});
+		
+
+$(function() {
+	$('.slides').slidesjs({
+        width: "auto",
+        height: "auto",
+        
+        navigation: true,
+        pagination: {
+          effect: "fade"
+    },
+    effect: {
+    	fade: {
+            speed: 400
+        }
+    }
+    });
+});
+
+
+/*Slide Up e Slide Down*/
+var rotation = 0
+$( "#add" ).click(function() {
+	
+	if (rotation == 0){
+	var products_height = $("#products").height();
+	$("html, body").animate({
+		scrollTop: $("#destaques").offset().top + products_height
+	},200);
+	
+	
+	$( "#products" ).slideDown( "fast" );
+	rotation += 45;
+	$('#add').css({'-webkit-transform' : 'rotate('+ rotation +'deg)',
+                 '-moz-transform' : 'rotate('+ rotation +'deg)',
+                 '-ms-transform' : 'rotate('+ rotation +'deg)',
+                 'transform' : 'rotate('+ rotation +'deg)'});
+    }else{
+    $("html, body").animate({
+		scrollTop: $("#destaques").offset().top
+	},200);
+    rotation = 0;
+		$('#add').css({'-webkit-transform' : 'rotate('+ rotation +'deg)',
+                 '-moz-transform' : 'rotate('+ rotation +'deg)',
+                 '-ms-transform' : 'rotate('+ rotation +'deg)',
+                 'transform' : 'rotate('+ rotation +'deg)'});
+		$( "#products" ).slideUp( "fast" );
+    }	
+});
+
+
+$(document).ready(function () {
+    var carousel = $("#owl-demo");
+  carousel.owlCarousel({
+    navigation:true,
+    navigationText: [
+      "<i class='icon-chevron-left icon-white'><img src='images/arrow_left.png'></i>",
+      "<i class='icon-chevron-right icon-white'><img src='images/arrow_right.png'></i>"
+      ],
+  });
+});
+   
+
+
+var FullWidth = $('body').width();
+var destaque1 = $("#destaque1").width();
+var destaque2 = $("#destaque2").width();
+  
+  
+/*Share a Ride*/
+$('.trigger1').click(function(e) {
+    e.preventDefault();   
+    if($(window).width() > 1023 ){
+    	$("#destaque1").next().animate({
+    		right: '-100%',
+    	},500);   	
+    	$('#destaques').css('background-image', 'url("images/wallpaper1.jpg")');
+    	$('#destaques').css('background-size', '100% 100%');
+    	$('#destaques').css('overflow-y', 'hidden');
+    	$('.trigger1').hide();
+    	
+    	$(".add").css({"display": "none"}); 
+    }
+	$(".hide-content-1").css({"display": "inline"});  
+});
+
+
+$('.close-classic').click(function(e) {
+    e.preventDefault();
+    $("#destaque1").next().animate({
+    	right:'0',
+    },400, function() {
+    	// Animation complete.
+    	$(".hide-content-1").css({"display": "none"}); 
+    	$(".add").css({"display": "inline"}); 
+    	$('#destaques').css('overflow-y', 'visible');
+    	$('.trigger1').show();
+  	});
+    $("#destaque1").animate({
+    	width: 50 + '%',
+    	easing: 'swing',
+    	duration: 1000,    		
+    });
+    
+
+});
+
+
+
+$('.trigger').click(function(e) {
+    e.preventDefault();
+    
+    if(destaque2 < FullWidth && $(window).width() > 1023 ){
+    	$("#destaque1").animate({
+    		left: '-100%',
+    	},500);
+    	$('#destaques').css('background-image', 'url("images/wallpaper2.jpg")');
+    	$('#destaques').css('background-position', 'center');
+    	$('#destaques').css('overflow-y', 'hidden');
+    	$('.trigger').hide();
+    	$(".add").css({"display": "none"}); 
+  	}
+
+	$(".hide-content-2").css({"display": "inline"});  
+});
+
+
+
+
+
+$('.close-classic-2').click(function(e) {
+    e.preventDefault();
+    	$("#destaque1").animate({
+    		left:'0',
+    	},400, function() {
+    		// Animation complete.
+    		$('#destaques').css('background-position', '0% 0%');
+			$(".hide-content-2").css({"display": "none"}); 
+			$('.trigger').show();
+			$(".add").css({"display": "inline"}); 
+			$('#destaques').css('overflow-y', 'visible');
+  		});
+  		
+    	$("#destaque1").animate({
+    		width: 50 + '%',
+    		easing: 'swing',
+    		duration: 1000,    		
+    	});
+
+});
+
+
+$(".carousel-inner").click(function(){
+   $("#carousel-example-generic").carousel('next');
+});
+
+$(".carousel-inner").click(function(){
+   $("#carousel-example-generic").carousel('prev');
+});
+
+
+
+
+    </script>
+    
+</body>
+</html>
